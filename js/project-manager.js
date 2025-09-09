@@ -38,9 +38,9 @@ class ProjectManager {
             {
                 
                 id: '3',
-                title: 'Recipe Finder App',
-                description: 'A mobile-first recipe application with ingredient-based search and meal planning features.',
-                image: '/assets/recipe-finder.png', // Add your project image
+                title: 'Level up IRL',
+                description: 'A website that helps users improve their real-life skills through interactive challenges and tutorials.',
+                image: '/assets/level.png', // Add your project image
                 demoLink: 'https://your-recipe-demo.com',
                 codeLink: 'https://github.com/yourusername/recipe-finder',
                 technologies: ['React Native', 'Firebase', 'Spoonacular API', 'Redux'],

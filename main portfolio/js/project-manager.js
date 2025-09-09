@@ -41,8 +41,8 @@ class ProjectManager {
                 title: 'Level up IRL',
                 description: 'A website that helps users improve their real-life skills through interactive challenges and tutorials.',
                 image: '/assets/level.png', // Add your project image
-                demoLink: 'https://your-recipe-demo.com',
-                codeLink: 'https://github.com/yourusername/recipe-finder',
+                demoLink: '',
+                codeLink: '',
                 technologies: ['Html5', 'CSS', 'JavaScript', ''],
                 category: 'mobile',
                 createdAt: new Date('2024-04-05').toISOString()
