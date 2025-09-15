@@ -216,34 +216,6 @@ function showNotification(message, type = 'info') {
 }
 
 // Projects functionality
-function initProjects() {
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    let additionalProjects = [
-        {
-            title: 'Social Media Dashboard',
-            description: 'A comprehensive dashboard for managing multiple social media accounts with analytics and scheduling.',
-            image: 'https://via.placeholder.com/400x250/EF4444/FFFFFF?text=Project+4',
-            tech: ['React', 'Redux', 'Node.js'],
-            liveUrl: '#',
-            githubUrl: '#'
-        },
-        {
-            title: 'Cryptocurrency Tracker',
-            description: 'Real-time cryptocurrency price tracking with portfolio management and price alerts.',
-            image: 'https://via.placeholder.com/400x250/06B6D4/FFFFFF?text=Project+5',
-            tech: ['Vue.js', 'Chart.js', 'API'],
-            liveUrl: '#',
-            githubUrl: '#'
-        },
-        {
-            title: 'Recipe Finder App',
-            description: 'A mobile-first recipe application with ingredient-based search and meal planning features.',
-            image: 'https://via.placeholder.com/400x250/84CC16/FFFFFF?text=Project+6',
-            tech: ['React Native', 'Firebase', 'API'],
-            liveUrl: '#',
-            githubUrl: '#'
-        }
-    ];
 
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', function() {
@@ -251,7 +223,7 @@ function initProjects() {
             this.style.display = 'none';
         });
     }
-}
+
 
 // Load additional projects
 function loadAdditionalProjects(projects) {
