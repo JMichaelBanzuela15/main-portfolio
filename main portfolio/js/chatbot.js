@@ -91,7 +91,7 @@ async function handleSubmit(e) {
   } catch (error) {
     console.error('Chat error:', error);
     hideTyping();
-    addMessage('Sorry, I\'m having trouble connecting right now. Try asking about John Michael\'s skills, experience, or contact information!', 'error');
+    addMessage('Sorry, I\'m having trouble connecting right now. Try asking about John Michael\'s <b>skills</b>, <b>experience</b>, or <b>contact information</b>!', 'error');
   } finally {
     chatSend.disabled = false;
     chatInput.focus();
@@ -100,7 +100,7 @@ async function handleSubmit(e) {
 
 function getQuickResponse(message) {
   const msg = message.toLowerCase();
-  
+}
   // Contact information
   if (msg.includes('email') || msg.includes('contact')) {
     return `You can reach John Michael at ${portfolioData.email} or call ${portfolioData.phone}. He's based in ${portfolioData.location}.`;
@@ -136,9 +136,7 @@ function getQuickResponse(message) {
   if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
     return `Hello! I'm John Michael's AI assistant. I can help you learn about his skills, experience, projects, or contact information. What would you like to know?`;
   }
-  
-  return null; // No quick response found
-}
+ 
 
 async function getAIResponse(message) {
   // Create context-aware prompt
