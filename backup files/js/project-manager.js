@@ -18,7 +18,7 @@ class ProjectManager {
                 title: 'Workout Simulation for Nelstar and Adam Fitness Gym',
                 description: 'A web-based fitness platform that lets users simulate personalized workout routines, view exercise techniques, and track virtual progress, combining fitness expertise with modern web technologies to boost engagement and motivation.',
                 image: '/assets/nelstar.png', // Make sure this file exists in your public folder
-                demoLink: 'https://your-demo-link.com', // Replace with actual demo link
+                demoLink: '', // Replace with actual demo link
                 codeLink: 'https://github.com/yourusername/nelstar-gym', // Replace with actual repo link
                 technologies: ['Html5', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
                 category: 'web',
@@ -28,7 +28,7 @@ class ProjectManager {
                 id: '2',
                 title: 'Sampayan Weather Checker ',
                 description: 'Real-time weather updates and forecasts for any location (Mini Project).',
-                image: '/assets/laundry.png', // Add your project image
+                image: '/assets/sampayan.png', // Add your project image
                 demoLink: 'https://sampay.vercel.app/',
                 codeLink: 'https://github.com/yourusername/crypto-tracker',
                 technologies: ['HTML5', 'CSS', 'JavaScript', 'Weather API'],
@@ -39,13 +39,13 @@ class ProjectManager {
                 
                 id: '3',
                 title: 'Level up IRL',
-                description: 'A website that helps users improve their real-life skills through interactive challenges and tutorials.(Still working on it)',
+                description: 'A website that helps users improve their real-life skills through interactive challenges and tutorials.',
                 image: '/assets/level.png', // Add your project image
-                demoLink: 'https://your-recipe-demo.com',
-                codeLink: 'https://github.com/yourusername/recipe-finder',
-                technologies: ['Html5', 'CSS3', 'JavaScript', 'React Native', ],
-                category: 'website and soon to be mobile',
-                createdAt: new Date('2024-03-05').toISOString()
+                demoLink: '',
+                codeLink: '',
+                technologies: ['Html5', 'CSS', 'JavaScript', ''],
+                category: 'mobile',
+                createdAt: new Date('2024-04-05').toISOString()
             },
             // Add more projects here as needed
             /*
