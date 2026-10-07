@@ -383,3 +383,7 @@
 .filter-btn.category-other::before {
     content: '🔧 ';
 }
+
+.filter-btn.category-experience::before {
+    content: '📜 ';
+}

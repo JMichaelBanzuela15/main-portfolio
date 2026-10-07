@@ -254,8 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'Creative Thinker'
     ];
 
-    if (typingElement) {
-        // Start typing animation after a short delay
+    if (typingElement && !typingElement.classList.contains('typing-initialized')) {
+        // Start typing animation after a short delay (guarded to avoid double-init)
         setTimeout(() => {
             new AdvancedTyping(typingElement, typingTexts, {
                 typeSpeed: 100,
@@ -263,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pauseTime: 2000,
                 scrambleEffect: true
             });
+            typingElement.classList.add('typing-initialized');
         }, 1000);
     }
 
@@ -441,7 +442,7 @@ function initializeCustomTypingEffects() {
     if (heroSubtitle && !heroSubtitle.classList.contains('typing-initialized')) {
         heroSubtitle.classList.add('typing-initialized');
         
-        // Add some delay before starting
+        // Add some delay before starting (only if typing-text wasn't already initialized)
         setTimeout(() => {
             const typingTexts = [
                 'Full Stack Developer',
@@ -450,13 +451,16 @@ function initializeCustomTypingEffects() {
                 'Problem Solver',
                 'Code Enthusiast'
             ];
-            
-            new AdvancedTyping(document.getElementById('typing-text'), typingTexts, {
-                typeSpeed: 120,
-                deleteSpeed: 60,
-                pauseTime: 2500,
-                scrambleEffect: true
-            });
+            const typingEl = document.getElementById('typing-text');
+            if (typingEl && !typingEl.classList.contains('typing-initialized')) {
+                new AdvancedTyping(typingEl, typingTexts, {
+                    typeSpeed: 120,
+                    deleteSpeed: 60,
+                    pauseTime: 2500,
+                    scrambleEffect: true
+                });
+                typingEl.classList.add('typing-initialized');
+            }
         }, 1500);
     }
 

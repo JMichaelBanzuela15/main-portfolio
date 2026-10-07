@@ -17,7 +17,7 @@ class ProjectManager {
                 id: '1',
                 title: 'Workout Simulation for Nelstar and Adam Fitness Gym',
                 description: 'A web-based fitness platform that lets users simulate personalized workout routines, view exercise techniques, and track virtual progress, combining fitness expertise with modern web technologies to boost engagement and motivation.',
-                image: '/assets/nelstar.png', // Make sure this file exists in your public folder
+                image: 'assets/nelstar.png', // Make sure this file exists in your public folder
                 demoLink: 'https://your-demo-link.com', // Replace with actual demo link
                 codeLink: 'https://github.com/yourusername/nelstar-gym', // Replace with actual repo link
                 technologies: ['Html5', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
@@ -28,7 +28,7 @@ class ProjectManager {
                 id: '2',
                 title: 'Sampayan Weather Checker ',
                 description: 'Real-time weather updates and forecasts for any location (Mini Project).',
-                image: '/assets/laundry.png', // Add your project image
+                image: 'assets/laundry.png', // Add your project image
                 demoLink: 'https://sampay.vercel.app/',
                 codeLink: 'https://github.com/yourusername/crypto-tracker',
                 technologies: ['HTML5', 'CSS', 'JavaScript', 'Weather API'],
@@ -40,7 +40,7 @@ class ProjectManager {
                 id: '3',
                 title: 'Level up IRL',
                 description: 'A website that helps users improve their real-life skills through interactive challenges and tutorials.(Still working on it)',
-                image: '/assets/level.png', // Add your project image
+                image: 'assets/level.png', // Add your project image
                 demoLink: 'https://your-recipe-demo.com',
                 codeLink: 'https://github.com/yourusername/recipe-finder',
                 technologies: ['Html5', 'CSS3', 'JavaScript', 'React Native', ],
@@ -110,10 +110,10 @@ class ProjectManager {
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                  onload="this.style.opacity='1';"
                  style="opacity: 0; transition: opacity 0.3s ease;">
-             <div class="project-placeholder" style="display:none; align-items:center; justify-content:center; width:100%; height:100%; background:linear-gradient(135deg, #667eea, #764ba2); color:white; font-size:3rem;">
+             <div class="project-placeholder" style="display:none; align-items:center; justify-content:center; width:100%; height:100%; background:black; color:white; font-size:3rem;">
                  <i class="fas fa-code"></i>
              </div>` :
-            `<div class="project-placeholder" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; background:linear-gradient(135deg, #667eea, #764ba2); color:white; font-size:3rem;">
+            `<div class="project-placeholder" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; background:black; color:white; font-size:3rem;">
                  <i class="fas fa-code"></i>
              </div>`;
 

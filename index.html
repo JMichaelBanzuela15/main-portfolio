@@ -45,18 +45,15 @@
                 <h1 class="hero-title">
                     Hi, I'm <span class="highlight">John Michael Banzuela</span>
                 </h1>
-                <h2 class="hero-subtitle">
-                    <span id="typing-text"></span>
-                    <span class="cursor">|</span>
-                </h2>
+                <h2 class="hero-subtitle">Full Stack Developer</h2>
                 <p class="hero-description fade-in-up">
                     Passionate developer creating amazing digital experiences with modern technologies.
                 </p>
                 <div class="hero-buttons fade-in-up">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="assets/John_Michael_Banzuela.pdf" class="btn btn-accent" download>
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
+                    <button id="previewResumeBtn" class="btn btn-accent" style="display:inline-flex; align-items:center; gap:8px;">
+                        <i class="fas fa-eye"></i> Preview Resume
+                    </button>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
@@ -76,12 +73,10 @@
             <div class="about-content">
                 <div class="about-text">
                     <p class="fade-in-up">
-                        I'm a passionate developer with a love for creating innovative solutions. 
-                        With experience in modern web technologies, I bring ideas to life through 
-                        clean code and thoughtful design.
+                        IT professional with hands-on experience in technical support, API operations, system troubleshooting, and database management. Experienced with Linux, SQL, API testing, logs, UAT and production environments. Passionate about problem-solving and continuously developing my skills in backend development and DevOps.
                     </p>
                     <p class="fade-in-up">
-                        Outside of coding, I stay active through boxig and running, which helps me maintain a balanced lifestyle.
+                        Outside of coding, I stay active through MMA, which helps me maintain a balanced lifestyle.
                     </p>
                     <div class="stats fade-in-up">
                         <div class="stat"><h3>1+</h3><p>Years Experience</p></div>
@@ -110,13 +105,13 @@
                 <div class="skill-card fade-in-up">
                     <div class="skill-icon"><i class="fas fa-server"></i></div>
                     <h3>Backend</h3>
-                    <p>Node.js, Python, PHP</p>
+                    <p>Node.js, Python, PHP/LARAVEL</p>
                     <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
                 </div>
                 <div class="skill-card fade-in-up">
                     <div class="skill-icon"><i class="fas fa-database"></i></div>
                     <h3>Database</h3>
-                    <p>MongoDB, MySQL</p>
+                    <p>MongoDB, MySQL, SQL</p>
                     <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                 </div>
                 <div class="skill-card fade-in-up">
@@ -212,11 +207,30 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
-    <script src="js/typing.js"></script>
-    <script src="js/chatbot.js"></script>
+        <script src="js/resume-preview.js"></script>
+        <script src="js/chatbot.js"></script>
     <!-- Project Manager Script -->
     <script src="js/project-manager.js"></script>
     <!-- Project Filter Script -->
     <script src="js/project-filter.js"></script>
+
+        <!-- Resume Preview Modal -->
+        <div id="resumeModal" class="resume-modal" aria-hidden="true">
+            <div class="resume-modal__backdrop" id="resumeModalBackdrop"></div>
+            <div class="resume-modal__panel" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+                <div class="resume-modal__header">
+                    <h3 id="resumeTitle">Resume Preview</h3>
+                    <div class="resume-modal__actions">
+                        <a id="modalDownloadBtn" href="assets/MJ-RESUME-2k26.pdf" class="btn btn-accent" download>
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <button id="closeResumeBtn" class="btn btn-secondary" aria-label="Close preview">Close</button>
+                    </div>
+                </div>
+                <div class="resume-modal__body">
+                    <iframe id="resumeIframe" src="" frameborder="0" aria-label="Resume PDF viewer"></iframe>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

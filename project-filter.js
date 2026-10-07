@@ -36,6 +36,7 @@ class ProjectFilter {
                     <button class="filter-btn category-desktop" data-category="desktop">Desktop</button>
                     <button class="filter-btn category-api" data-category="api">API</button>
                     <button class="filter-btn category-other" data-category="other">Other</button>
+                    <button class="filter-btn category-experience" data-category="experience">Experience</button>
                 </div>
                 <div class="project-count" id="project-count"></div>
             </div>
@@ -138,14 +139,18 @@ class ProjectFilter {
             const description = card.querySelector('.project-description')?.textContent || '';
             const techBadges = Array.from(card.querySelectorAll('.tech-badge')).map(badge => badge.textContent);
             
-            // Try to determine category from technologies or use default
-            let category = 'web'; // default
-            if (techBadges.some(tech => tech.toLowerCase().includes('react native') || tech.toLowerCase().includes('flutter') || tech.toLowerCase().includes('ionic'))) {
-                category = 'mobile';
-            } else if (techBadges.some(tech => tech.toLowerCase().includes('electron') || tech.toLowerCase().includes('desktop'))) {
-                category = 'desktop';
-            } else if (techBadges.some(tech => tech.toLowerCase().includes('api') || tech.toLowerCase().includes('backend') || tech.toLowerCase().includes('server'))) {
-                category = 'api';
+            // Prefer explicit data-category on the card if provided
+            let category = card.dataset.category || 'web'; // default
+
+            // If no explicit category, try to determine from technologies
+            if (!card.dataset.category) {
+                if (techBadges.some(tech => tech.toLowerCase().includes('react native') || tech.toLowerCase().includes('flutter') || tech.toLowerCase().includes('ionic'))) {
+                    category = 'mobile';
+                } else if (techBadges.some(tech => tech.toLowerCase().includes('electron') || tech.toLowerCase().includes('desktop'))) {
+                    category = 'desktop';
+                } else if (techBadges.some(tech => tech.toLowerCase().includes('api') || tech.toLowerCase().includes('backend') || tech.toLowerCase().includes('server'))) {
+                    category = 'api';
+                }
             }
             
             return {
@@ -168,7 +173,17 @@ class ProjectFilter {
         // Apply category filter
         let filtered = this.allProjects;
         if (this.currentFilter !== 'all') {
-            filtered = filtered.filter(project => project.category === this.currentFilter);
+            if (this.currentFilter === 'experience') {
+                // 'Experience' shows projects explicitly marked as experience
+                // or projects whose title/description mention 'experience'
+                filtered = filtered.filter(project => 
+                    project.category === 'experience' ||
+                    project.description.toLowerCase().includes('experience') ||
+                    project.title.toLowerCase().includes('experience')
+                );
+            } else {
+                filtered = filtered.filter(project => project.category === this.currentFilter);
+            }
         }
 
         // Apply search filter
