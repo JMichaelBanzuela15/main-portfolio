@@ -472,13 +472,37 @@ body {
     color: var(--portfolio-text);
 }
 
+.contact .section-title {
+    text-align: center;
+}
+
+.contact-content {
+    display: block;
+}
+
+.contact-info {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .contact-info h3 {
     color: var(--portfolio-text);
+}
+
+.contact-details {
+    display: inline-block;
+    margin: 0 auto 2rem;
+    text-align: left;
 }
 
 .contact-info p,
 .contact-item {
     color: var(--portfolio-muted);
+}
+
+.social-links {
+    justify-content: center;
 }
 
 .contact-item i {
@@ -622,6 +646,10 @@ body {
 
     .about-content {
         grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        max-width: 100%;
     }
 }
 
