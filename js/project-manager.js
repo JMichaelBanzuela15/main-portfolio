@@ -1,4 +1,8 @@
 // Streamlined Project Manager for Production
+const projectAssetsBase = document.currentScript
+    ? new URL('../assets/', document.currentScript.src)
+    : new URL('assets/', document.baseURI);
+
 class ProjectManager {
     constructor() {
         this.projects = this.getDefaultProjects();
@@ -53,7 +57,7 @@ class ProjectManager {
                 demoLink: 'https://sampay.vercel.aapp/#',
                 codeLink: '#https://github.com/yourusername/crypto-tracker#',
                 technologies: ['HTML5', 'CSS', 'JavaScript', 'React', 'Node.js', 'MongoDB'],
-                category: 'other'
+                category: 'mobile'
             },
             // Add more projects here as needed
             /*
@@ -100,6 +104,8 @@ class ProjectManager {
     }
 
     createProjectCard(project, index) {
+        const imageUrl = project.image ?
+            new URL(project.image.replace(/^\/?assets\//, ''), projectAssetsBase).href : '';
         const techBadges = (project.technologies || [])
             .map(tech => `<span class="tech-badge">${tech}</span>`)
             .join('');
@@ -117,7 +123,7 @@ class ProjectManager {
             </a>` : '';
 
         const imageElement = project.image ? 
-            `<img src="${project.image}" alt="${project.title}" 
+            `<img src="${imageUrl}" alt="${project.title}"
                  loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                  onload="this.style.opacity='1';"

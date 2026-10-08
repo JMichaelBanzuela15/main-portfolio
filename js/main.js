@@ -8,28 +8,27 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initScrollEffects();
     initContactForm();
-    initProjects();
-    initScrollIndicator();
-    createParticles();
 });
 
 // Navigation functionality
 function initNavigation() {
-    const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.burger-btn, .hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Close menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (hamburger) hamburger.classList.remove('active');
+            if (navMenu) navMenu.classList.remove('active');
         });
     });
 
@@ -215,125 +214,6 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Projects functionality
-
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', function() {
-            loadAdditionalProjects(additionalProjects);
-            this.style.display = 'none';
-        });
-    }
-
-
-// Load additional projects
-function loadAdditionalProjects(projects) {
-    const projectsGrid = document.querySelector('.projects-grid');
-    
-    projects.forEach((project, index) => {
-        const projectCard = createProjectCard(project);
-        projectCard.style.opacity = '0';
-        projectCard.style.transform = 'translateY(30px)';
-        projectsGrid.appendChild(projectCard);
-        
-        // Animate in with delay
-        setTimeout(() => {
-            projectCard.style.transition = 'all 0.6s ease';
-            projectCard.style.opacity = '1';
-            projectCard.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
-}
-
-// Create project card element
-function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'project-card fade-in-up';
-    
-    card.innerHTML = `
-        <div class="project-image">
-            <img src="${project.image}" alt="${project.title}">
-            <div class="project-overlay">
-                <div class="project-links">
-                    <a href="${project.liveUrl}" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                    <a href="${project.githubUrl}" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="project-content">
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="project-tech">
-                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-            </div>
-        </div>
-    `;
-    
-    return card;
-}
-
-// Scroll indicator
-function initScrollIndicator() {
-    const scrollIndicator = document.createElement('div');
-    scrollIndicator.className = 'scroll-indicator';
-    document.body.appendChild(scrollIndicator);
-
-    window.addEventListener('scroll', function() {
-        const winHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (window.scrollY / winHeight) * 100;
-        scrollIndicator.style.width = scrolled + '%';
-    });
-}
-
-// Create floating particles
-function createParticles() {
-    const heroSection = document.querySelector('.hero');
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    heroSection.appendChild(particlesContainer);
-
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 20 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        particlesContainer.appendChild(particle);
-    }
-}
-
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    const heroImage = document.querySelector('.hero-image');
-    
-    if (heroContent && heroImage) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
-    }
-});
-
-// Add loading animation to page
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
 
 // Utility functions
 function debounce(func, wait, immediate) {
