@@ -36,16 +36,24 @@ class ProjectManager {
                 createdAt: new Date('2024-04-10').toISOString()
             },
             {
-                
                 id: '3',
-                title: 'Level up IRL',
-                description: 'A website that helps users improve their real-life skills through interactive challenges and tutorials.(Still working on it)',
-                image: 'assets/level.png', // Add your project image
-                demoLink: 'https://your-recipe-demo.com',
-                codeLink: 'https://github.com/yourusername/recipe-finder',
-                technologies: ['Html5', 'CSS3', 'JavaScript', 'React Native', ],
-                category: 'website and soon to be mobile',
-                createdAt: new Date('2024-03-05').toISOString()
+                title: 'Logs Parser',
+                description: 'A log-reading tool for pasting or uploading SQL logs, filtering entries by type and date, and exporting results. (This is a mini project for my personal use so my work will be easier.) that helps developers and system administrators analyze and manage SQL logs efficiently, providing insights into database performance and issues.',
+                image: 'assets/LOGS parser.png',
+                demoLink: 'https://sampay.vercel.aapp/',
+                codeLink: 'https://github.com/yourusername/crypto-tracker#',
+                technologies: ['HTML5', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+                category: 'web'
+            },
+            {
+                id: '4',
+                title: 'Kinsenas App',
+                description: 'Project details coming soon.',
+                image: 'assets/Kinsenas.png',
+                demoLink: 'https://sampay.vercel.aapp/#',
+                codeLink: '#https://github.com/yourusername/crypto-tracker#',
+                technologies: ['HTML5', 'CSS', 'JavaScript', 'React', 'Node.js', 'MongoDB'],
+                category: 'other'
             },
             // Add more projects here as needed
             /*
@@ -80,9 +88,11 @@ class ProjectManager {
         }
 
         // Sort projects by creation date (newest first)
-        const sortedProjects = [...this.projects].sort((a, b) => 
-            new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        const sortedProjects = [...this.projects].sort((a, b) => {
+            const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+            const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+            return dateB - dateA;
+        });
 
         projectsGrid.innerHTML = sortedProjects
             .map((project, index) => this.createProjectCard(project, index))
@@ -93,6 +103,8 @@ class ProjectManager {
         const techBadges = (project.technologies || [])
             .map(tech => `<span class="tech-badge">${tech}</span>`)
             .join('');
+        const projectTech = techBadges ?
+            `<div class="project-tech">${techBadges}</div>` : '';
 
         const demoLink = project.demoLink && project.demoLink !== '#' ? 
             `<a href="${project.demoLink}" target="_blank" rel="noopener noreferrer" class="project-link demo">
@@ -116,29 +128,30 @@ class ProjectManager {
             `<div class="project-placeholder" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; background:black; color:white; font-size:3rem;">
                  <i class="fas fa-code"></i>
              </div>`;
+        const projectLinks = demoLink || codeLink ?
+            `<div class="project-links">${demoLink}${codeLink}</div>` : '';
+        const projectDate = project.createdAt ?
+            `<small class="project-date">
+                <i class="fas fa-calendar-alt"></i>
+                ${new Date(project.createdAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                })}
+            </small>` : '';
 
         return `
-            <div class="project-card" data-index="${index}" style="animation-delay: ${index * 0.1}s;">
+            <div class="project-card" data-index="${index}" data-category="${project.category || 'other'}" style="animation-delay: ${index * 0.1}s;">
                 <div class="project-image">
                     ${imageElement}
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">${project.title}</h3>
                     <p class="project-description">${project.description}</p>
-                    <div class="project-tech">${techBadges}</div>
-                    <div class="project-links">
-                        ${demoLink}
-                        ${codeLink}
-                    </div>
+                    ${projectTech}
+                    ${projectLinks}
                     <div class="project-meta">
-                        <small class="project-date">
-                            <i class="fas fa-calendar-alt"></i>
-                            ${new Date(project.createdAt).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'short',
-                                day: 'numeric'
-                            })}
-                        </small>
+                        ${projectDate}
                         <span class="project-category ${project.category}">
                             ${this.getCategoryIcon(project.category)} ${this.getCategoryName(project.category)}
                         </span>
