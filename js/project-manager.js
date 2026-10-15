@@ -18,6 +18,15 @@ class ProjectManager {
     getDefaultProjects() {
         return [
             {
+                id: '5',
+                title: 'IncidentFlow - IT Incident Management System',
+                description: 'A web-based incident management platform for handling IT requests from submission through resolution. IncidentFlow provides role-based dashboards for requesters, IT staff, and administrators, with tools to assign and track incidents, manage status updates, notify users of resolutions, and review an audit history. Built with React, Node.js, Express, and MySQL.',
+                image: 'assets/Incident.png',
+                technologies: ['React', 'JavaScript', 'Node.js', 'Express', 'MySQL', 'HTML', 'CSS'],
+                category: 'web',
+                createdAt: new Date('2026-10-15').toISOString()
+            },
+            {
                 id: '1',
                 title: 'Workout Simulation for Nelstar and Adam Fitness Gym',
                 description: 'A web-based fitness platform that lets users simulate personalized workout routines, view exercise techniques, and track virtual progress, combining fitness expertise with modern web technologies to boost engagement and motivation.',
