@@ -20,7 +20,7 @@ class ProjectManager {
             {
                 id: '5',
                 title: 'IncidentFlow - IT Incident Management System',
-                description: 'A web-based incident management platform for handling IT requests from submission through resolution. IncidentFlow provides role-based dashboards for requesters, IT staff, and administrators, with tools to assign and track incidents, manage status updates, notify users of resolutions, and review an audit history. Built with React, Node.js, Express, and MySQL.',
+                description: 'A web-based incident management platform for handling IT requests from submission through resolution. IncidentFlow provides role-based dashboards for requesters, IT staff, and administrators, with tools to assign and track incidents, manage status updates, notify users of resolutions, and review an audit history of all actions. It is designed to streamline IT support processes, improve response times, and enhance user satisfaction.',
                 image: 'assets/Incident.png',
                 technologies: ['React', 'JavaScript', 'Node.js', 'Express', 'MySQL', 'HTML', 'CSS'],
                 category: 'web',
@@ -61,7 +61,7 @@ class ProjectManager {
             {
                 id: '4',
                 title: 'Kinsenas App',
-                description: 'Project details coming soon.',
+                description: 'A personal budgeting app that helps users track expenses, monitor their remaining budget, and build better saving habits. KinsenasPH includes a spending dashboard, daily savings progress, budget tips, and savings goals with progress tracking.',
                 image: 'assets/Kinsenas.png',
                 demoLink: 'https://sampay.vercel.aapp/#',
                 codeLink: '#https://github.com/yourusername/crypto-tracker#',
